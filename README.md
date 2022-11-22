@@ -78,4 +78,5 @@ rust actix-web diesel mysql demo.
 
 https://diesel.rs/guides/getting-started
 https://www.rectcircle.cn/posts/rust-diesel/
+https://docs.diesel.rs/diesel/query_dsl/trait.QueryDsl.html
 
