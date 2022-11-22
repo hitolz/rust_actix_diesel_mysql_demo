@@ -64,7 +64,7 @@
     │   └── settings.rs
     ```
 
-   1. 这种目录结构还在摸索中，还是 mvc 的方式，个人感觉比较清晰
+   1. rust 的目录结构还在摸索中，这里还是 mvc 的方式，
    2. api 提供服务的接口，类似于 controller
    3. database 数据库相关，初始化数据库连接以及 schema
    4. models 代码运行过程中的 struct
