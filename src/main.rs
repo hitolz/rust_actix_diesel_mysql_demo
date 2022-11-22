@@ -5,6 +5,7 @@ use tracing ::{
 use tracing::instrument::WithSubscriber;
 use time::{macros::format_description, UtcOffset};
 use actix_web::web::Json;
+use api::test_api;
 
 mod api;
 mod service;
@@ -45,7 +46,12 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new( || {
         App::new()
             .service(hello)
-            .route("/hey", web::get().to(api::test_api::hello))
+            .route("/hey", web::get().to(test_api::hello))
+            .route("/create",web::post().to(test_api::create))
+            .route("/findFirst",web::get().to(test_api::findFirst))
+            .route("/findById/{id}",web::get().to(test_api::findById))
+            .route("/deleteById/{id}",web::post().to(test_api::deleteById))
+
     })
         .bind((ip,port))?
         .run()
