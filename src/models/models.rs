@@ -1,5 +1,5 @@
 use diesel::prelude::*;
-use super::schema::*;
+use crate::database::schema::*;
 use serde::{Deserialize,Serialize};
 
 #[derive(Queryable,Serialize,Deserialize)]
