@@ -1,3 +1,5 @@
+rust actix-web diesel mysql demo.
+
 1. 创建工程
     ```
     cargo new rust_diesel_mysql_demo

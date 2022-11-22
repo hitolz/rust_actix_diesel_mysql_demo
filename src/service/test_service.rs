@@ -7,7 +7,6 @@ use crate::database::mysql::establish_connection;
 pub fn create_post( title: &str, body: &str) -> Post {
 
     let connection = &mut establish_connection();
-    use crate::database::schema::posts;
 
     let new_post = NewPost { title, body };
 
