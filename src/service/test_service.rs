@@ -23,7 +23,7 @@ pub fn findById(id: i64) -> Post {
     // 几种写法都能运行、、
     // posts::table.filter(posts::id.eq(id)).first(connection).unwrap()
     // posts::dsl::posts.find(id).first(connection).unwrap()
-    posts::table.find(id).first(connection).unwrap();
+    posts::table.find(id).first(connection).unwrap()
 }
 
 pub fn deleteById(id: i64) -> bool {
