@@ -51,6 +51,7 @@ async fn main() -> std::io::Result<()> {
             .route("/findFirst",web::get().to(test_api::findFirst))
             .route("/findById/{id}",web::get().to(test_api::findById))
             .route("/deleteById/{id}",web::post().to(test_api::deleteById))
+            .route("/publish/{id}",web::post().to(test_api::publishById))
 
     })
         .bind((ip,port))?

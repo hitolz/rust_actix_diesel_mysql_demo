@@ -35,3 +35,9 @@ pub async fn deleteById(id: web::Path<i64>) -> impl Responder {
     test_service::deleteById(id.into_inner());
     HttpResponse::Ok().body("success!")
 }
+
+pub async fn publishById (id: web::Path<i64>) -> impl Responder{
+    let idInner = id.into_inner();
+    test_service::publishById(idInner);
+    HttpResponse::Ok().body("success!")
+}

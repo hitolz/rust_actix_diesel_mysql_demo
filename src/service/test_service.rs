@@ -34,3 +34,12 @@ pub fn deleteById(id: i64) -> bool {
 
     return true;
 }
+
+pub fn publishById(id: i64) -> bool {
+    let connection = &mut establish_connection();
+
+    diesel::update(posts::table).filter(posts::id.eq(id))
+        .set(posts::published.eq(true))
+        .execute(connection).unwrap();
+    true
+}
