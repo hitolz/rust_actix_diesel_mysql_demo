@@ -18,7 +18,7 @@ pub fn create_post(title: &str, body: &str) -> Post {
     posts::table.order(posts::id.desc()).first(connection).unwrap()
 }
 
-pub fn findById(id: i64) -> Post {
+pub fn find_by_id(id: i64) -> Post {
     let connection = &mut establish_connection();
     // 几种写法都能运行、、
     // posts::table.filter(posts::id.eq(id)).first(connection).unwrap()
@@ -26,7 +26,7 @@ pub fn findById(id: i64) -> Post {
     posts::table.find(id).first(connection).unwrap()
 }
 
-pub fn deleteById(id: i64) -> bool {
+pub fn delete_by_id(id: i64) -> bool {
     let connection = &mut establish_connection();
 
     diesel::delete(posts::table).filter(posts::id.eq(id))
@@ -35,7 +35,7 @@ pub fn deleteById(id: i64) -> bool {
     return true;
 }
 
-pub fn publishById(id: i64) -> bool {
+pub fn publish_by_id(id: i64) -> bool {
     let connection = &mut establish_connection();
 
     diesel::update(posts::table).filter(posts::id.eq(id))

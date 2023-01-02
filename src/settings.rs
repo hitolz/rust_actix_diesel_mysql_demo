@@ -1,7 +1,5 @@
 use config::{Config, ConfigError};
 use serde::Deserialize;
-use sqlx::{MySql, Pool};
-use sqlx::mysql::MySqlPoolOptions;
 use time::{macros::format_description, UtcOffset};
 
 #[derive(Debug, Deserialize)]

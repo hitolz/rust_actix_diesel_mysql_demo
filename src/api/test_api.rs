@@ -8,13 +8,13 @@ pub async fn hello() -> impl Responder {
     HttpResponse::Ok().body("Hello world!")
 }
 
-pub async fn findFirst() -> impl Responder {
-    let post = test_service::findById(1);
+pub async fn find_first() -> impl Responder {
+    let post = test_service::find_by_id(1);
     Json(post)
 }
 
-pub async fn findById(id: web::Path<i64>) -> impl Responder {
-    let post = test_service::findById(id.into_inner());
+pub async fn find_by_id(id: web::Path<i64>) -> impl Responder {
+    let post = test_service::find_by_id(id.into_inner());
     Json(post)
 }
 
@@ -25,19 +25,19 @@ pub struct NewPost {
 }
 
 
-pub async fn create(newPost: Json<NewPost>) -> impl Responder {
-    println!("{:?}", newPost);
-    let post = test_service::create_post(&newPost.title, &newPost.body);
+pub async fn create(new_post: Json<NewPost>) -> impl Responder {
+    println!("{:?}", new_post);
+    let post = test_service::create_post(&new_post.title, &new_post.body);
     Json(post)
 }
 
-pub async fn deleteById(id: web::Path<i64>) -> impl Responder {
-    test_service::deleteById(id.into_inner());
+pub async fn delete_by_id(id: web::Path<i64>) -> impl Responder {
+    test_service::delete_by_id(id.into_inner());
     HttpResponse::Ok().body("success!")
 }
 
-pub async fn publishById (id: web::Path<i64>) -> impl Responder{
-    let idInner = id.into_inner();
-    test_service::publishById(idInner);
+pub async fn publish_by_id (id: web::Path<i64>) -> impl Responder{
+    let id_inner = id.into_inner();
+    test_service::publish_by_id(id_inner);
     HttpResponse::Ok().body("success!")
 }

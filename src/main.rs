@@ -11,10 +11,11 @@ mod api;
 mod service;
 mod database;
 mod models;
+mod settings;
 
 #[get("/")]
 async fn hello() -> impl Responder {
-    let post = service::test_service::create_post("test--tile", "hhhhhhh");
+    let post = service::test_service::create_post("test--title", "hhhhhhh");
     Json(post)
 }
 
@@ -48,10 +49,10 @@ async fn main() -> std::io::Result<()> {
             .service(hello)
             .route("/hey", web::get().to(test_api::hello))
             .route("/create",web::post().to(test_api::create))
-            .route("/findFirst",web::get().to(test_api::findFirst))
-            .route("/findById/{id}",web::get().to(test_api::findById))
-            .route("/deleteById/{id}",web::post().to(test_api::deleteById))
-            .route("/publish/{id}",web::post().to(test_api::publishById))
+            .route("/findFirst",web::get().to(test_api::find_first))
+            .route("/findById/{id}",web::get().to(test_api::find_by_id))
+            .route("/deleteById/{id}",web::post().to(test_api::delete_by_id))
+            .route("/publish/{id}",web::post().to(test_api::publish_by_id))
 
     })
         .bind((ip,port))?
